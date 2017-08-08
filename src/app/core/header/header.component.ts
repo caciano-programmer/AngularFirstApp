@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {DataStorageService} from "../shared/dataStorage.service";
+import {DataStorageService} from "../../shared/dataStorage.service";
 import {Response} from "@angular/http";
-import {AuthService} from "../auth/authService";
+import {AuthService} from "../../auth/authService";
 
 @Component({
   selector: "app-header",
@@ -13,6 +13,10 @@ export class HeaderComponent {
 
   fetchData() {
     this.storage.getRecipes();
+  }
+
+  isAuthenticated() {
+    return this.authService.isLoggedIn();
   }
 
   onLogout() {
